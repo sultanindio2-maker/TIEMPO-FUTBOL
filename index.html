@@ -18,6 +18,30 @@
             padding: 15px;
             border-bottom: 3px solid #ffcc00;
         }
+        .contador-flotante {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #161616;
+            padding: 8px;
+            border: 1px solid #ffcc00;
+            border-radius: 5px;
+            color: white;
+            z-index: 1000;
+            font-size: 10px;
+        }
+        .alerta-vivo {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+            animation: parpadear 1s infinite;
+        }
+        @keyframes parpadear {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
         .main-frame {
             max-width: 800px;
             margin: 20px auto;
@@ -25,7 +49,7 @@
         }
         .preframe {
             position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 perfecta */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden; 
             background-color: #000;
@@ -39,7 +63,6 @@
             width: 100%;
             height: 100%;
         }
-        /* Separadores de categorías */
         .titulo-categoria {
             margin-top: 25px;
             margin-bottom: 10px;
@@ -69,33 +92,53 @@
         .btn-canal:hover {
             background-color: #e6b800;
         }
+        .footer-nota {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #888;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
+
+    <div class="contador-flotante">
+        Visitas:<br>
+        <a href="https://www.hitwebcounter.com" target="_blank">
+        <img src="https://hitwebcounter.com/counter/counter.php?pageid=16584950&style=0005&nbdigits=5&type=page&initCount=0" title="Contador" Alt="visitas" border="0" /></a>
+    </div>
 
     <header>
         <h1>⚽ MI APP DE FÚTBOL ⚽</h1>
     </header>
 
     <main class="main-frame">
+        <div class="alerta-vivo">🔴 PARTIDOS EN VIVO 🔴</div>
+
         <div class="preframe">
-            <iframe id="reproductor-principal" allowfullscreen="true" scrolling="no" src="https://latamvidzfy.org/dsportsplus.php" frameborder="0"></iframe>
+            <iframe id="reproductor-principal" 
+                    allowfullscreen="true" 
+                    scrolling="no" 
+                    src="https://latamvidzfy.org/dsportsar.php" 
+                    frameborder="0">
+            </iframe>
         </div>
 
-        <!-- SECCIÓN: CANALES INTERNACIONALES -->
         <h3 class="titulo-categoria">Canales Internacionales</h3>
         <div class="menu-canales">
-            <button class="btn-canal" onclick="cambiarCanal('https://latamvidzfy.org/dsportsplus.php')">DSports Plus</button>
+            <button class="btn-canal" onclick="cambiarCanal('https://latamvidzfy.org/dsportsar.php')">DSports Arg</button>
             <button class="btn-canal" onclick="cambiarCanal('https://latamvidzfy.org/espn1.php')">ESPN 1</button>
             <button class="btn-canal" onclick="cambiarCanal('https://latamvidzfy.org/fox1us.php')">🦊 Fox Sport</button>
         </div>
 
-        <!-- SECCIÓN: FÚTBOL ARGENTINO -->
         <h3 class="titulo-categoria">Fútbol Argentino</h3>
         <div class="menu-canales">
             <button class="btn-canal" onclick="cambiarCanal('https://latamvidzfy.org/tntsports.php')">🔥 TNT Sports</button>
-            <!-- Corregido el nombre del botón -->
             <button class="btn-canal" onclick="cambiarCanal('https://latamvidzfy.org/foxsportspremium.php')">⭐ ESPN Premium</button>
+        </div>
+
+        <div class="footer-nota">
+            La pagina esta en proceso, por si encuentras algun error, por favor reportalo a mi correo: sultanindio2@gmail.com
         </div>
     </main>
 
@@ -106,4 +149,4 @@
     </script>
 
 </body>
-</html><title>ESTA EN PROCESO, POR SI ENCUENTRAS  ALGUNOS ERRORES</title>
+</html>
